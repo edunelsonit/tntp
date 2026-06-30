@@ -1,39 +1,36 @@
 # The New Tomorrow's Project
 
-The New Tomorrow's Project is a PHP-based payment reconciliation and identity access gateway built to support three user roles: administrators, cluster managers, and regular users. It integrates with Monnify for generating virtual bank accounts, tracks user payment status, manages salary dispute workflows, and provides a single entry login router for multiple authentication flows.
+The New Tomorrow's Project is a PHP-based payment reconciliation and identity access gateway built to support three user roles: administrators, cluster managers, and regular users. It integrates with Flutterwave for recieving user payment , tracks user payment status, manages salary dispute workflows, and provides a single entry login router for multiple authentication flows.
 
 ## Project Description
 
-The New Tomorrow's Project centralizes salary payment tracking, virtual account creation, and reconciliation for a cluster-based organization. Users authenticate with their NIN to view their payment statement and upload proof of payment. Cluster managers and administrators control clusters, users, and Monnify account management.
+The New Tomorrow's Project centralizes salary payment tracking, remttance collection, and reconciliation for a cluster-based organization. Users authenticate with their NIN to view their payment statement and upload proof of payment if the webhook doesn't verify automatically. Cluster managers and administrators control clusters, users, and Flutterwave payment gateway.
 
 ## Core Functions
 
 - **Centralized login router** (`index.php`)
   - Supports three authentication modes:
     - `user` — NIN-only login
-    - `cluster_manager` — cluster code + password
-    - `admin` — admin username + password
+    - `cluster_manager` — cluster code or email + password
+    - `admin` — admin username or email + password
 - **User registration and profile**
   - New users can register through `register.php`
   - Users can view personal transaction statements and upload payment proofs in `users/index.php`
   - Users can submit salary dispute claims with supporting proof
 - **Admin dashboard** (`admin/index.php`)
-  - Shows metrics for expected revenue, reconciled settlements, defaulting balance, and payment completion
+  - Shows metrics for expected revenue, reconciled settlements, defaulting balance, and payment completion.
   - Lists outstanding payees and offers links to cluster and user management pages
-- **Monnify virtual account management**
-  - Admin features to generate reserved Monnify accounts for users (`admin/monnify_accounts.php`)
-  - Bulk generation of missing virtual accounts and single-user account assignment
 - **User management** (`admin/users.php`)
   - Register users manually, assign clusters, set expected payment amounts, due dates, and payment rules
-  - Generate Monnify payment accounts for users
   - Mark salary remittance events and manage pending payment status
   - Review pending payment proofs, pending approvals, and salary disputes
 - **Cluster management** (`admin/clusters.php`)
   - Manage payment clusters and cluster manager credentials
+  - Make payment on behalf of cluster members
 - **Webhook listener** (`api/webhook.php`)
-  - Endpoint for Monnify payment event callbacks to receive and reconcile incoming payments
+  - Endpoint for Flutterwave payment event callbacks to receive and reconcile incoming payments
 - **Reusable configuration and database utility** (`config/config.php`)
-  - Starts sessions, defines database and Monnify credentials, and provides helper functions
+  - Starts sessions, defines database and Flutterwave credentials, and provides helper functions
   - Automatically updates database schema for required columns and tables
 - **Secure session and access control**
   - `checkRouteAccess()` ensures pages are protected by role
@@ -49,7 +46,7 @@ The New Tomorrow's Project centralizes salary payment tracking, virtual account 
 - `core/register_handler.php` — user registration handler
 - `core/upload_payment_proof.php` — payment proof upload handler
 - `core/dispute_salary.php` — salary dispute submission handler
-- `api/webhook.php` — Monnify webhook listener
+- `api/webhook.php` — Flutterwave webhook listener
 - `admin/` — administrator pages and management tools
 - `manager/` — cluster manager dashboard pages
 - `users/` — regular user dashboard pages
@@ -66,33 +63,31 @@ The New Tomorrow's Project centralizes salary payment tracking, virtual account 
   - Can review cluster-specific payment activity
 - `admin`
   - Full access to platform administration
-  - Manage users, clusters, Monnify accounts, reports, approvals, and disputes
+  - Manage users, clusters, Flutterwave accounts, reports, approvals, and disputes
 
-## Monnify Integration
+## Flutterwave Integration
 
-The project uses Monnify sandbox credentials for generating reserved accounts:
+The project uses Flutterwave for recieving user payment:
 
-- `MONNIFY_API_KEY`
-- `MONNIFY_SECRET_KEY`
-- `MONNIFY_BASE_URL`
-- `MONNIFY_CONTRACT_CODE`
+- `Flutterwave_API_KEY`
+- `Flutterwave_SECRET_KEY`
+- `Flutterwave_BASE_URL`
+- `Flutterwave_CONTRACT_CODE`
 
-The admin pages call Monnify APIs to:
+The admin pages call Flutterwave APIs to:
 
 - authenticate using API key and secret
-- create reserved bank accounts for users
-- store generated account numbers in the `users` table
 
 ## Installation and Setup
 
-1. Place the project in your PHP web root, e.g. `c:\xampp\htdocs\PayCluster`
-2. Create a MySQL database named in `config/config.php`, by default `tntp_db`
+1. Place the project in your PHP web root, e.g. `tntp`
+2. Create a MySQL database named in `config/config.php`, by default `manodedi_tntp`
 3. Update `config/config.php` with your database credentials
 4. Ensure the webserver can write to the `uploads/` directory for uploaded proofs
 5. Open the application in a browser using your web root path, for example:
    - `http://tntp.com.ng/` or `http://localhost/`
 6. Create the first admin account using `admin/register.php`
-7. Register users, assign clusters, and generate Monnify accounts as needed
+7. Register users, assign clusters, and generate Flutterwave accounts as needed
 
 ## Database Notes
 
@@ -110,7 +105,7 @@ The admin pages call Monnify APIs to:
 
 1. Admin creates an admin login and cluster manager accounts
 2. Admin registers users and assigns them to clusters
-3. Admin generates Monnify virtual accounts for users
+3. Admin generates Flutterwave virtual accounts for users
 4. Users log in with NIN, see their account reference, and make bank transfers
 5. Users upload proof of payment or dispute unpaid salary
 6. Admin verifies payments and resolves disputes
@@ -126,5 +121,5 @@ The admin pages call Monnify APIs to:
 
 - Add CSRF protection for forms
 - Add input validation and sanitization for all POST data
-- Improve error handling for webhook and Monnify API failures
+- Improve error handling for webhook and Flutterwave API failures
 - Add migrations or explicit schema SQL for repeatable deployments

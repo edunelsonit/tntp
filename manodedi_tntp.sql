@@ -82,7 +82,7 @@ CREATE TABLE `payment_history` (
   `remittance_id` int NOT NULL,
   `tx_reference` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `amount_paid` decimal(10,2) NOT NULL,
-  `payment_method` enum('MONNIFY_WEBHOOK','MANUAL_ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `payment_method` enum('FLUTTER_WEBHOOK','MANUAL_ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `receipt_number` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `processed_by_admin_id` int DEFAULT NULL,
   `paid_at` datetime DEFAULT CURRENT_TIMESTAMP
@@ -135,10 +135,8 @@ CREATE TABLE `users` (
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `gender` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
-  `virtual_account` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `salary_account_number` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `salary_bank_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `bank_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `cluster_code` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `host_organization` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `resumption_date` date DEFAULT NULL,
@@ -149,7 +147,7 @@ CREATE TABLE `users` (
   `approval_status` enum('PENDING','APPROVED','REJECTED') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'PENDING',
   `amount_paid` decimal(10,2) NOT NULL DEFAULT '0.00',
   `payment_status` enum('UNPAID','PARTIAL','PAID','EXEMPTED','DEFAULTING') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'UNPAID',
-  `monnify_reference` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `flutter_reference` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `last_modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

@@ -1,0 +1,56 @@
+.
+├── admin
+│   ├── admin_action_logs.php
+│   ├── analytics.php
+│   ├── approve_request.php
+│   ├── clusters.php
+│   ├── delete_cluster.php
+│   ├── index.php
+│   ├── manage_disputes.php
+│   ├── mark_user_paid.php
+│   ├── register.php
+│   ├── reports.php
+│   ├── resolve_dispute.php
+│   ├── salary_paid.php
+│   ├── settings.php
+│   ├── transactions.php
+│   ├── user_edit.php
+│   ├── users.php
+│   ├── verify_payment.php
+│   ├── verify_proofs.php
+│   └── webhook_test.php
+├── api
+│   └── webhook.php
+├── cgi-bin
+├── config
+│   └── config.php
+├── core
+│   ├── auth_handler.php
+│   ├── DisputeManager.php
+│   ├── dispute_salary.php
+│   ├── error_log
+│   ├── generate_virtual_account.php
+│   ├── register_handler.php
+│   ├── RemittanceManager.php
+│   └── upload_payment_proof.php
+├── index.php
+├── logout.php
+├── manager
+│   ├── bulk_import_handler.php
+│   ├── bulk_import.php
+│   ├── error_log
+│   ├── index.php
+│   ├── template.csv
+│   └── verify_payment.php
+├── manodedi_tntp.sql
+├── partials
+│   ├── footer.php
+│   └── header.php
+├── project.txt
+├── README.md
+└── users
+    ├── error_log
+    ├── index.php
+    ├── receipt.php
+    ├── register.php
+    └── settings.php
