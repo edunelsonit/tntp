@@ -1,0 +1,211 @@
+<?php
+/**
+ * TNTP Monnify Integration Documentation
+ * 
+ * This document explains how to set up and test the Monnify payment integration.
+ */
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monnify Integration Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="mb-4">TNTP Monnify Integration Guide</h1>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">1. Getting Monnify Credentials</h5>
+                </div>
+                <div class="card-body">
+                    <p>To enable Monnify payment processing:</p>
+                    <ol>
+                        <li>Sign up at <a href="https://app.monnify.com" target="_blank">https://app.monnify.com</a></li>
+                        <li>Go to Settings → API Keys</li>
+                        <li>Copy your:
+                            <ul>
+                                <li><strong>API Key</strong></li>
+                                <li><strong>Secret Key</strong></li>
+                                <li><strong>Contract Code</strong> (from Dashboard)</li>
+                            </ul>
+                        </li>
+                        <li>Update <code>config/config.php</code>:
+                            <pre><code>define('MONNIFY_API_KEY', 'YOUR_API_KEY');
+define('MONNIFY_SECRET_KEY', 'YOUR_SECRET_KEY');
+define('MONNIFY_CONTRACT_CODE', 'YOUR_CONTRACT_CODE');
+define('MONNIFY_BASE_URL', 'https://api.monnify.com'); // Change from sandbox</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">2. Testing Setup</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Available Test Tools:</h6>
+                    <ul>
+                        <li><a href="test_monnify_api.php">API Connection Test</a> - Verify credentials and basic connectivity</li>
+                        <li><a href="monnify_accounts.php">Account Generator</a> - Create virtual accounts for users</li>
+                        <li><a href="webhook_test.php">Webhook Test</a> - Simulate payment transactions</li>
+                        <li><a href="discover_monnify_config.php">Contract Discovery</a> - Find correct contract code</li>
+                        <li><a href="explore_monnify_endpoints.php">Endpoint Explorer</a> - Check available API endpoints</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">3. Account Generation Workflow</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Step 1:</strong> Create a user via Admin → Users</p>
+                    <p><strong>Step 2:</strong> Navigate to Admin → Monnify</p>
+                    <p><strong>Step 3:</strong> Click "Generate All" or generate individual accounts</p>
+                    <p><strong>Result:</strong> Each user gets:</p>
+                    <ul>
+                        <li>Virtual account number</li>
+                        <li>Bank name (GTBank, Zenith, etc.)</li>
+                        <li>Monnify reference ID</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">4. Testing Payments</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Sandbox Testing:</h6>
+                    <ol>
+                        <li>Go to Admin → Monnify → Generate Accounts</li>
+                        <li>Generate test accounts</li>
+                        <li>Go to Admin → Webhook Test</li>
+                        <li>Simulate payments (amounts will be recorded but not real)</li>
+                        <li>Check user payment status updates automatically</li>
+                    </ol>
+                    <h6>Production Payments:</h6>
+                    <p>Once live:</p>
+                    <ul>
+                        <li>Users can transfer to their virtual accounts</li>
+                        <li>Monnify sends webhook notifications</li>
+                        <li>System automatically processes and updates records</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">5. Implementation Details</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Database Fields:</h6>
+                    <ul>
+                        <li><code>virtual_account</code> - The actual account number</li>
+                        <li><code>bank_name</code> - Bank providing the account</li>
+                        <li><code>monnify_reference</code> - Monnify's reference ID</li>
+                    </ul>
+                    <h6>Transaction Recording:</h6>
+                    <p>When payment is received:</p>
+                    <ol>
+                        <li>Monnify sends webhook with transaction details</li>
+                        <li><code>api/webhook.php</code> validates signature</li>
+                        <li>Transaction recorded in database</li>
+                        <li>User's <code>amount_paid</code> updated</li>
+                        <li><code>payment_status</code> recalculated (PAID/PARTIAL/DEFAULTING)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0">⚠️ Troubleshooting</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Account Generation Fails:</h6>
+                    <ul>
+                        <li>Check API credentials in <code>config/config.php</code></li>
+                        <li>Verify contract code is correct</li>
+                        <li>Ensure API key has "Reserve Account" permission</li>
+                    </ul>
+                    <h6>Webhook Not Received:</h6>
+                    <ul>
+                        <li>Ensure <code>APP_BASE_URL</code> is publicly accessible</li>
+                        <li>Configure webhook URL in Monnify dashboard: <code>APP_BASE_URL/api/webhook.php</code></li>
+                        <li>Check webhook signature validation in <code>api/webhook.php</code></li>
+                    </ul>
+                    <h6>Account Numbers Not Showing:</h6>
+                    <ul>
+                        <li>Check that <code>getAllAvailableBanks</code> is set to true</li>
+                        <li>Verify contract has multiple bank partnerships</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">✓ Feature Checklist</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="c1">
+                        <label class="form-check-label" for="c1">Monnify credentials configured</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="c2">
+                        <label class="form-check-label" for="c2">API connection tested</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="c3">
+                        <label class="form-check-label" for="c3">Virtual accounts generated for users</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="c4">
+                        <label class="form-check-label" for="c4">Webhook endpoint configured in Monnify</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="c5">
+                        <label class="form-check-label" for="c5">Test transaction completed successfully</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card position-sticky" style="top: 20px;">
+                <div class="card-body">
+                    <h6 class="fw-bold mb-3">📚 Resources</h6>
+                    <ul class="small list-unstyled">
+                        <li class="mb-2">
+                            <a href="https://docs.monnify.com" target="_blank">Monnify API Docs</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://docs.monnify.com/reserved-accounts" target="_blank">Reserved Accounts Guide</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://docs.monnify.com/webhooks" target="_blank">Webhook Documentation</a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h6 class="fw-bold mb-3">🔧 Config Location</h6>
+                    <p class="small"><code>config/config.php</code> lines 13-17</p>
+                    <hr>
+                    <h6 class="fw-bold mb-3">📁 Integration Files</h6>
+                    <ul class="small list-unstyled">
+                        <li class="mb-1"><code>admin/monnify_accounts.php</code></li>
+                        <li class="mb-1"><code>admin/webhook_test.php</code></li>
+                        <li class="mb-1"><code>api/webhook.php</code></li>
+                        <li class="mb-1"><code>admin/users.php</code> (generation code)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

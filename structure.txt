@@ -1,0 +1,34 @@
+tntp/
+│
+├── config/
+│   └── config.php             # Database connection, Monnify API keys, and session start
+│
+├── core/
+│   └── auth_handler.php       # Processes login form data for Admin, Manager, and Users
+│
+├── api/
+│   └── webhook.php            # Monnify API Webhook listener endpoint (Receives payments)
+│
+├── partials/
+│   ├── header.php             # Shared HTML <head>, Bootstrap CSS links, and navbar navigation
+│   └── footer.php             # Shared HTML <footer> and Bootstrap JS script bundles
+│
+├── admin/
+│   ├── index.php              # Admin Dashboard (KPI metrics cards & global navigation)
+│   ├── clusters.php           # Manage/Create payment clusters
+│   └── users.php              # Onboard users, assign to clusters, trigger Monnify virtual accounts
+│
+├── manager/
+│   └── index.php              # Cluster Manager Dashboard (View assigned cluster users & revenue metrics)
+│
+├── user/
+│   └── index.php              # End-User Dashboard (Displays personal Virtual Account, Balance & Receipts)
+│
+├── assets/
+│   ├── css/
+│   │   └── custom.css         # Optional custom overrides for Bootstrap styling
+│   └── js/
+│       └── app.js             # Optional custom frontend form validation scripts
+│
+├── index.php                  # Central Login Router page (The platform homepage)
+└── logout.php                 # Securely terminates active sessions and redirects to login

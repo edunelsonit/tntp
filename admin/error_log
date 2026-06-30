@@ -1,0 +1,78 @@
+[14-Jun-2026 20:16:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:17:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:17:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:35:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:35:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:35:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:35:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:35:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:36:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:17
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(17): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 17
+[14-Jun-2026 20:38:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'working_status' in 'field list' in /home/manodedi/tntp.com.ng/admin/index.php:20
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/admin/index.php(20): PDO->query('SELECT working_...')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/index.php on line 20
+[14-Jun-2026 21:57:40 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:57:40 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:57:44 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:57:44 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:00 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:00 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:06 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:20 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:20 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:24 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 21:58:24 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 22:00:00 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 22:00:00 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 22:01:49 UTC] PHP Warning:  Undefined array key "manager_name" in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[14-Jun-2026 22:01:49 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/manodedi/tntp.com.ng/admin/analytics.php on line 151
+[19-Jun-2026 18:05:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function verifyCsrfToken() in /home/manodedi/tntp.com.ng/admin/delete_cluster.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/delete_cluster.php on line 15
+[19-Jun-2026 18:05:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function verifyCsrfToken() in /home/manodedi/tntp.com.ng/admin/delete_cluster.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/delete_cluster.php on line 15
+[19-Jun-2026 18:06:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function verifyCsrfToken() in /home/manodedi/tntp.com.ng/admin/delete_cluster.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/manodedi/tntp.com.ng/admin/delete_cluster.php on line 15

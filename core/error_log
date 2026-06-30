@@ -1,0 +1,6 @@
+[17-Jun-2026 16:55:31 UTC] PHP Warning:  Undefined array key "password_hash" in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75
+[17-Jun-2026 16:55:31 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75
+[17-Jun-2026 16:56:34 UTC] PHP Warning:  Undefined array key "password_hash" in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75
+[17-Jun-2026 16:56:34 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75
+[17-Jun-2026 16:57:54 UTC] PHP Warning:  Undefined array key "password_hash" in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75
+[17-Jun-2026 16:57:54 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in /home/manodedi/tntp.com.ng/core/auth_handler.php on line 75

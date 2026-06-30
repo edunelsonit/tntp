@@ -1,0 +1,26 @@
+[15-Jun-2026 14:25:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function verifyCsrfToken() in /home/manodedi/tntp.com.ng/manager/index.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/manodedi/tntp.com.ng/manager/index.php on line 40
+[15-Jun-2026 18:05:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function verifyCsrfToken() in /home/manodedi/tntp.com.ng/manager/index.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/manodedi/tntp.com.ng/manager/index.php on line 40
+[17-Jun-2026 13:53:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'manodedi_tntp.transactions' doesn't exist in /home/manodedi/tntp.com.ng/manager/users.php:229
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/manager/users.php(229): PDO->query('SELECT t.id, t....')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/manager/users.php on line 229
+[17-Jun-2026 13:53:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'manodedi_tntp.transactions' doesn't exist in /home/manodedi/tntp.com.ng/manager/users.php:229
+Stack trace:
+#0 /home/manodedi/tntp.com.ng/manager/users.php(229): PDO->query('SELECT t.id, t....')
+#1 {main}
+  thrown in /home/manodedi/tntp.com.ng/manager/users.php on line 229
+[17-Jun-2026 17:37:35 UTC] PHP Parse error:  syntax error, unexpected token "endif" in /home/manodedi/tntp.com.ng/manager/index.php on line 355
+[17-Jun-2026 17:37:39 UTC] PHP Parse error:  syntax error, unexpected token "endif" in /home/manodedi/tntp.com.ng/manager/index.php on line 355
+[17-Jun-2026 17:38:05 UTC] PHP Parse error:  syntax error, unexpected token "endif" in /home/manodedi/tntp.com.ng/manager/index.php on line 355
+[30-Jun-2026 11:47:05 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "]" in /home/manodedi/tntp.com.ng/manager/index.php on line 203
+[30-Jun-2026 11:47:10 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "]" in /home/manodedi/tntp.com.ng/manager/index.php on line 203
+[30-Jun-2026 11:47:11 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "]" in /home/manodedi/tntp.com.ng/manager/index.php on line 203
+[30-Jun-2026 11:47:12 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "]" in /home/manodedi/tntp.com.ng/manager/index.php on line 203
+[30-Jun-2026 11:48:01 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "]" in /home/manodedi/tntp.com.ng/manager/index.php on line 203

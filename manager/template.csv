@@ -1,0 +1,3 @@
+nin,full_name,phone,email,expected_amount,due_date,salary_account_number,salary_bank_name,gender,dob,state,lga,host_organization
+12345678901,John Doe,08012345678,john.doe@domain.ng,150000.00,2026-07-01,0123456789,Zenith Bank,Male,1992-04-12,Lagos,Ikoyi,Acme Corporation
+98765432101,Jane Smith,08123456789,jane.smith@domain.ng,225000.50,2026-07-15,9876543210,Access Bank,Female,1995-08-24,FCT,Asokoro,Global Logistics Ltd
